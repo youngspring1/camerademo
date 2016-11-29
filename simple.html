@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+  
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>camera</title>
+    <script language="javascript" src="jquery-3.1.1.min.js"></script>
+  </head>
+  
+  <body>
+    <video id="video" autoplay="" style='width:640px;height:480px'></video>
+    <button id='picture'>PICTURE</button>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    <script>var video = document.getElementById("video");
+      var context = canvas.getContext("2d");
+      var errocb = function() {
+        console.log("wrong");
+      }
+      navigator.getUserMedia = navigator.getUserMedia ||
+                         navigator.webkitGetUserMedia ||
+                         navigator.mozGetUserMedia;
+      if (navigator.getUserMedia) { // 标准的API
+        console.log("in getUserMedia");
+        navigator.getUserMedia({
+          "video": true
+        },
+        function(stream) {
+          console.log("in stream");
+          video.src = stream;
+          video.play();
+        },
+        errocb);
+      } else if (navigator.webkitGetUserMedia) { // WebKit 核心的API
+        console.log("in webkitGetUserMedia");
+        navigator.webkitGetUserMedia({
+          "video": true
+        },
+        function(stream) {
+          video.src = window.webkitURL.createObjectURL(stream);
+          video.play();
+        },
+        errocb);
+      }</script>
+  </body>
+
+</html>
