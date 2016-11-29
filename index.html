@@ -6,19 +6,10 @@
    </head>
 	
    <body> 
-      <video autoplay></video> 
-      <div><button id = "btnGetAudioTracks">getAudioTracks()
-         </button></div> 
-      <div><button id = "btnGetTrackById">getTrackById()
-         </button></div> 
-      <div><button id = "btnGetTracks">getTracks()</button></div> 
-      <div><button id = "btnGetVideoTracks">getVideoTracks()
-         </button></div> 
-      <div><button id = "btnRemoveAudioTrack">removeTrack() - audio
-         </button></div> 
-      <div><button id = "btnRemoveVideoTrack">removeTrack() - video
-         </button></div> 
-      <script src = "client.js"></script> 
+      <div><video id="video" autoplay width="320" height="240"></video></div>
+      <div><button id="btnSnap">take a picture</button></div>
+      <div><canvas id="canvas" width="320" height="240"></canvas></div>
+      <script src = "client.js"></script>
    </body> 
 	
 </html>
