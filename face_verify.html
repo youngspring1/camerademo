@@ -30,8 +30,7 @@
         })
         .done(function(data) {
             alert("success");
-            alert(data.isIdentical);
-            alert(data.confidence);
+            alert("faceId1:" + jsondata.faceId1 + "\nfaceId2:" + jsondata.faceId2 + "\nisIdentical:" + data.isIdentical + "\nconfidence:" + data.confidence);
         })
         .fail(function() {
             alert("error");
