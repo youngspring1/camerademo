@@ -2,12 +2,14 @@
 <html>
 <head>
     <title>Face Detect</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="jquery.min.js"></script>
 </head>
 <body>
 
 <script type="text/javascript">
+	
     $(function() {
+    	
         var params = {
             // Request parameters
             "returnFaceId": "true",
@@ -15,7 +17,7 @@
             "returnFaceAttributes": "age",
         };
 
-        var jsondata={"url":"https://youngspring1.github.io/camerademo/image/5.jpg"};
+        var jsondata={"url":"https://youngspring1.github.io/camerademo/image/3.jpg"};
 
         
         $.ajax({
@@ -30,12 +32,21 @@
             data: JSON.stringify(jsondata)
         })
         .done(function(data) {
+        	
             alert("success");
+            var myFaceIds = new Array();
+            for (i=0;i<data.length;i++){
+            	myFaceIds[i] = data[i].faceId;
+            }
+            alert(myFaceIds);
+            
         })
+        
         .fail(function() {
             alert("error");
         });
     });
+    
 </script>
 </body>
 </html>
