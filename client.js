@@ -15,7 +15,7 @@ if (hasUserMedia()) {
       || navigator.mozGetUserMedia; 
 		
    //enabling video and audio channels 
-   navigator.getUserMedia({ video: true, audio: true }, function (s) { 
+   navigator.getUserMedia({ video: true, audio: false }, function (s) { 
       stream = s; 
 
       //inserting our stream to the video tag     
