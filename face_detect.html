@@ -17,7 +17,7 @@
             "returnFaceAttributes": "age",
         };
 
-        var jsondata={"url":"https://youngspring1.github.io/camerademo/image/3.jpg"};
+        var jsondata={"url":"https://youngspring1.github.io/camerademo/image/5.jpg"};
 
         
         $.ajax({
@@ -34,12 +34,15 @@
         .done(function(data) {
         	
             alert("success");
-            var myFaceIds = new Array();
             for (i=0;i<data.length;i++){
-            	myFaceIds[i] = data[i].faceId;
+            	alert("face " + (i+1) + ":\n" +
+            			"faceId: " + data[i].faceId +
+            			"face start point:(" + data[i].faceRectangle.left + "," + data[i].faceRectangle.top + ")\n" +
+            			"face size:(" + data[i].faceRectangle.width + "," + data[i].faceRectangle.height + ")\n" +
+            			"age:" + data[i].faceAttributes.age
+            		);
+            	
             }
-            alert(myFaceIds);
-            
         })
         
         .fail(function() {
